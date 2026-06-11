@@ -1,0 +1,58 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
+  "name": "nyumba-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Kenya housing \u2014 rental market, tenant rights, building permits, affordable housing programs, and housing finance. 5 tools.",
+  "license": "MIT",
+  "author": {
+    "name": "Gabriel Mahia",
+    "email": "contact@aikungfu.dev"
+  },
+  "tools": [
+    {
+      "name": "rental_market_guide",
+      "description": "Kenya rental market prices",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "tenant_rights_guide",
+      "description": "Tenant rights in Kenya",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "building_permit_guide",
+      "description": "Building permit process",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "affordable_housing_guide",
+      "description": "Kenya affordable housing programs",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "housing_finance_guide",
+      "description": "Housing finance and mortgages",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    }
+  ]
+}
