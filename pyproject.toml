@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nyumba-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP server for Kenya housing — rental market, tenant rights, building permits, affordable housing programs, and housing finance. 5 tools."
 readme = "README.md"
 license = { text = "MIT" }
