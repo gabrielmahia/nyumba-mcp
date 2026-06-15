@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Optional
 from fastmcp import FastMCP
-mcp = FastMCP(name="nyumba-mcp", description="Kenya housing: rental market, permits, affordable housing. DEMO.")
+mcp = FastMCP(name="nyumba-mcp", instructions="Kenya housing: rental market, permits, affordable housing. DEMO.")
 
 @mcp.tool(name="rental_market_guide", description="Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.")
 def rental_market_guide(county: str, bedrooms: Optional[int] = 1, area_type: Optional[str] = "suburb") -> dict:
