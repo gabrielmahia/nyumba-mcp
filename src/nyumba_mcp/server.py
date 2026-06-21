@@ -2,10 +2,12 @@
 from __future__ import annotations
 from typing import Optional
 from fastmcp import FastMCP
+from pydantic import Field
 mcp = FastMCP(name="nyumba-mcp", instructions="Kenya housing: rental market, permits, affordable housing. DEMO.")
 
 @mcp.tool(name="rental_market_guide", description="Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.")
 def rental_market_guide(county: str, bedrooms: Optional[int] = 1, area_type: Optional[str] = "suburb") -> dict:
+    """Return rental market data, average prices, and area guides for Kenya residential areas."""
     RENTALS = {
         "nairobi": {1: {"suburb": "KES 12,000–25,000", "estate": "KES 6,000–15,000"},
                     2: {"suburb": "KES 25,000–60,000", "estate": "KES 15,000–30,000"},
@@ -26,6 +28,7 @@ def rental_market_guide(county: str, bedrooms: Optional[int] = 1, area_type: Opt
 
 @mcp.tool(name="tenant_rights_guide", description="Kenya tenant rights under Rent Restriction Act and Land Act. DEMO.")
 def tenant_rights_guide(topic: str) -> dict:
+    """Return Kenya tenant rights, landlord obligations, and dispute resolution procedures."""
     RIGHTS = {
         "eviction": "30 days notice required for month-to-month tenancy. Court order needed for forceful eviction. Illegal to remove tenant's belongings without court order.",
         "rent_increase": "Landlord must give 30 days notice. Rent Restriction Tribunal (residential < KES 2,500/month old law) — now mainly market-based.",
@@ -42,6 +45,7 @@ def tenant_rights_guide(topic: str) -> dict:
 
 @mcp.tool(name="building_permit_guide", description="Building plan approval and permit process in Kenya counties. DEMO.")
 def building_permit_guide(county: str, project_type: Optional[str] = "residential") -> dict:
+    """Return building permit requirements, fees, and process steps for a Kenya county."""
     return {"source": "DEMO — NCA and county governments", "county": county, "project_type": project_type,
             "steps": ["1. Engage registered architect (NCA-licensed)",
                       "2. Submit drawings to county Physical Planning (for planning approval)",
@@ -55,7 +59,7 @@ def building_permit_guide(county: str, project_type: Optional[str] = "residentia
             "penalty": "Illegal construction: KES 1M fine or 2 years prison or both."}
 
 @mcp.tool(name="affordable_housing_guide", description="Kenya affordable housing programs: Boma Yangu, SHA, county schemes. DEMO.")
-def affordable_housing_guide(county: Optional[str] = None, income_range: Optional[str] = None) -> dict:
+def affordable_housing_guide(county: Optional[str] = Field(None, description="Kenya county e.g. 'Nairobi', 'Kiambu'. Leave empty for national programmes."), income_range: Optional[str] = Field(None, description="Monthly income bracket e.g. 'under_15000', '15000_30000', '30000_50000' in KES.")) -> dict:
     return {"source": "DEMO — bomayanguke.go.ke for official programs", "county": county,
             "programs": [
                 {"name": "Boma Yangu (Affordable Housing Program)", "url": "bomayanguke.go.ke",
@@ -72,6 +76,7 @@ def affordable_housing_guide(county: Optional[str] = None, income_range: Optiona
 
 @mcp.tool(name="housing_finance_guide", description="Kenya housing finance: mortgages, SACCOS, tenant purchase schemes. DEMO.")
 def housing_finance_guide(income_kes_monthly: Optional[float] = 50000, property_value_kes: Optional[float] = None) -> dict:
+    """Return Kenya housing finance options including mortgages, NHBF products, and government schemes."""
     max_mortgage = round((income_kes_monthly or 50000) * 0.4 * 240, 0)
     return {"source": "DEMO — verify with specific lenders", "monthly_income": income_kes_monthly,
             "mortgage_estimate": {"max_loan_kes": max_mortgage, "term": "20 years",
