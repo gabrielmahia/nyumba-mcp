@@ -1,11 +1,11 @@
 """NyumbaMCP — Kenya Housing Tools (5 tools). All data DEMO."""
 from __future__ import annotations
-from typing import Optional
+from typing import Annotated, Optional
 from fastmcp import FastMCP
 from pydantic import Field
 mcp = FastMCP(name="nyumba-mcp", instructions="Kenya housing: rental market, permits, affordable housing. DEMO.")
 
-@mcp.tool(name="rental_market_guide", description="Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.")
+@mcp.tool(name="rental_market_guide", description="Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def rental_market_guide(county: str, bedrooms: Optional[int] = 1, area_type: Optional[str] = "suburb") -> dict:
     """Return rental market data, average prices, and area guides for Kenya residential areas."""
     RENTALS = {
@@ -26,7 +26,7 @@ def rental_market_guide(county: str, bedrooms: Optional[int] = 1, area_type: Opt
             "platforms": ["BuyRentKenya", "PigiaMe", "HauzaKe", "Landlord Kenya"],
             "tip": "Prices vary significantly by specific neighbourhood and building quality."}
 
-@mcp.tool(name="tenant_rights_guide", description="Kenya tenant rights under Rent Restriction Act and Land Act. DEMO.")
+@mcp.tool(name="tenant_rights_guide", description="Kenya tenant rights under Rent Restriction Act and Land Act. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def tenant_rights_guide(topic: str) -> dict:
     """Return Kenya tenant rights, landlord obligations, and dispute resolution procedures."""
     RIGHTS = {
@@ -43,7 +43,7 @@ def tenant_rights_guide(topic: str) -> dict:
     return {"source": "DEMO — Landlord and Tenant Act, Land Act 2012", "topic": topic,
             "rights": matched or RIGHTS, "disclaimer": "Not legal advice. Consult an advocate."}
 
-@mcp.tool(name="building_permit_guide", description="Building plan approval and permit process in Kenya counties. DEMO.")
+@mcp.tool(name="building_permit_guide", description="Building plan approval and permit process in Kenya counties. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def building_permit_guide(county: str, project_type: Optional[str] = "residential") -> dict:
     """Return building permit requirements, fees, and process steps for a Kenya county."""
     return {"source": "DEMO — NCA and county governments", "county": county, "project_type": project_type,
@@ -58,7 +58,7 @@ def building_permit_guide(county: str, project_type: Optional[str] = "residentia
             "nca": "National Construction Authority — nca.go.ke — contractor registration",
             "penalty": "Illegal construction: KES 1M fine or 2 years prison or both."}
 
-@mcp.tool(name="affordable_housing_guide", description="Kenya affordable housing programs: Boma Yangu, SHA, county schemes. DEMO.")
+@mcp.tool(name="affordable_housing_guide", description="Kenya affordable housing programs: Boma Yangu, SHA, county schemes. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def affordable_housing_guide(county: Optional[str] = Field(None, description="Kenya county e.g. 'Nairobi', 'Kiambu'. Leave empty for national programmes."), income_range: Optional[str] = Field(None, description="Monthly income bracket e.g. 'under_15000', '15000_30000', '30000_50000' in KES.")) -> dict:
     return {"source": "DEMO — bomayanguke.go.ke for official programs", "county": county,
             "programs": [
@@ -74,8 +74,8 @@ def affordable_housing_guide(county: Optional[str] = Field(None, description="Ke
             ],
             "mortgage": "KMRC (Kenya Mortgage Refinance Company) — liquidity for affordable mortgages. Banks: KCB, Co-op, Equity."}
 
-@mcp.tool(name="housing_finance_guide", description="Kenya housing finance: mortgages, SACCOS, tenant purchase schemes. DEMO.")
-def housing_finance_guide(income_kes_monthly: Optional[float] = 50000, property_value_kes: Optional[float] = None) -> dict:
+@mcp.tool(name="housing_finance_guide", description="Kenya housing finance: mortgages, SACCOS, tenant purchase schemes. DEMO.", annotations={"readOnlyHint": True, "openWorldHint": False})
+def housing_finance_guide(income_kes_monthly: Optional[float] = 50000, property_value_kes: Annotated[Optional[float], "Optional filter for property value kes. Pass None to return all results."] = None) -> dict:
     """Return Kenya housing finance options including mortgages, NHBF products, and government schemes."""
     max_mortgage = round((income_kes_monthly or 50000) * 0.4 * 240, 0)
     return {"source": "DEMO — verify with specific lenders", "monthly_income": income_kes_monthly,
