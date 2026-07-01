@@ -3,6 +3,14 @@
 [![nyumba-mcp Glama score](https://glama.ai/mcp/servers/gabrielmahia/nyumba-mcp/badges/score.svg)](https://glama.ai/mcp/servers/gabrielmahia/nyumba-mcp)
 [![smithery badge](https://smithery.ai/badge/@gabrielmahia/nyumba-mcp)](https://smithery.ai/server/@gabrielmahia/nyumba-mcp)
 
+
+---
+**Compatible with `claude-sonnet-5`** (released 2026-06-30) — Anthropic's most agentic
+Sonnet yet. Runs multi-step tool chains end-to-end without stopping short.
+Install: `pip install nyumba-mcp` · Use with any MCP client.
+
+---
+
 MCP server for Kenya housing — rental market, tenant rights, building permits, affordable housing programs, and housing finance. 5 tools.
 
 ## Part of the East Africa Coordination Stack
