@@ -87,3 +87,7 @@ def housing_finance_guide(income_kes_monthly: Optional[float] = 50000, property_
                         {"type": "KMRC-linked", "rate": "7%", "note": "Affordable housing scheme, income limits apply"}],
             "nhif_benefit": "SHA members may access mortgage-linked benefits",
             "tip": "SACCO mortgages are often cheaper than commercial bank rates."}
+
+def main() -> None:
+    """Console entry point."""
+    mcp.run()

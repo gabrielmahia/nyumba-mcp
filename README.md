@@ -1,4 +1,5 @@
 # nyumba-mcp
+<!-- mcp-name: io.github.gabrielmahia/nyumba-mcp -->
 
 [![nyumba-mcp Glama score](https://glama.ai/mcp/servers/gabrielmahia/nyumba-mcp/badges/score.svg)](https://glama.ai/mcp/servers/gabrielmahia/nyumba-mcp)
 [![smithery badge](https://smithery.ai/badge/@gabrielmahia/nyumba-mcp)](https://smithery.ai/server/@gabrielmahia/nyumba-mcp)
