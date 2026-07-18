@@ -14,5 +14,11 @@ dependencies = ["fastmcp>=0.9", "pydantic>=2.0"]
 [project.scripts]
 nyumba-mcp = "nyumba_mcp.server:mcp.run"
 
+[project.urls]
+Homepage = "https://github.com/gabrielmahia/nyumba-mcp"
+Documentation = "https://github.com/gabrielmahia/nairobi-stack"
+"MCP Registry" = "https://registry.modelcontextprotocol.io"
+Datasets = "https://huggingface.co/gmahia"
+Evaluation = "https://github.com/gabrielmahia/kipimo"
 [tool.setuptools.packages.find]
 where = ["src"]
