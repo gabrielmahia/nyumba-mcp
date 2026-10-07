@@ -1,8 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
   "name": "nyumba-mcp",
-  "version": "0.1.0",
-  "description": "MCP server for Kenya housing \u2014 rental market, tenant rights, building permits, affordable housing programs, and housing finance. 5 tools.",
+  "version": "0.1.4",
+  "description": "MCP server for Kenya housing — rental market, tenant rights, building permits, affordable housing programs, and housing finance",
   "license": "MIT",
   "author": {
     "name": "Gabriel Mahia",
@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "rental_market_guide",
-      "description": "Kenya rental market prices",
+      "description": "Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "tenant_rights_guide",
-      "description": "Tenant rights in Kenya",
+      "description": "Kenya tenant rights under Rent Restriction Act and Land Act. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "building_permit_guide",
-      "description": "Building permit process",
+      "description": "Building plan approval and permit process in Kenya counties. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "affordable_housing_guide",
-      "description": "Kenya affordable housing programs",
+      "description": "Kenya affordable housing programs: Boma Yangu, SHA, county schemes. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "housing_finance_guide",
-      "description": "Housing finance and mortgages",
+      "description": "Kenya housing finance: mortgages, SACCOS, tenant purchase schemes. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -68,5 +68,8 @@
     "mcp",
     "useful-rails",
     "ai-agents"
+  ],
+  "maintainers": [
+    "gabrielmahia"
   ]
 }
