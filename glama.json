@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "rental_market_guide",
-      "description": "Kenya rental market guide: prices, tenant rights, and county-specific info. DEMO.",
+      "description": "Indicative monthly rent ranges in KES by county, number of bedrooms and area type (suburb or estate), with rental platforms. Use when someone asks roughly what a place costs to rent. Only some counties and bedroom counts are in the sample table; anything else returns 'Not in sample' for estimated_rent_kes rather than a guess. Returns the source label, the inputs, estimated_rent_kes, platforms and a tip. Prices labelled DEMO and indicative for Q2 2026: check current listings. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "tenant_rights_guide",
-      "description": "Kenya tenant rights under Rent Restriction Act and Land Act. DEMO.",
+      "description": "Tenant rights in Kenya: eviction notice, deposits, rent increases, repairs and related topics, with the governing law. Use when a tenant asks what a landlord may or may not do. Keywords in topic select entries; if none match, ALL rights are returned. Returns the source label, topic, rights and a not-legal-advice disclaimer. Static summary labelled DEMO: verify with an advocate or the Rent Restriction Tribunal. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "building_permit_guide",
-      "description": "Building plan approval and permit process in Kenya counties. DEMO.",
+      "description": "Steps to get a building permit in Kenya: architect, county approvals, NCA registration, inspections and occupation certificate, with an indicative fee range and penalties. Use when someone plans to build. county and project_type are only echoed back; the steps are the same everywhere. Returns the source label, the echoed inputs, numbered steps, fees_estimate, NCA details and a penalty note. Indicative figures labelled DEMO: county fees and rules differ. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "affordable_housing_guide",
-      "description": "Kenya affordable housing programs: Boma Yangu, SHA, county schemes. DEMO.",
+      "description": "Kenya's affordable housing programmes (Boma Yangu, social housing and others) with how to register and what each offers, plus mortgage refinance context. Use when someone asks how to access subsidised or affordable housing. county and income_range are only echoed back; the same programmes are returned for everyone. Returns the source label, the programmes and a mortgage note. Static summary labelled DEMO: eligibility and prices change. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "housing_finance_guide",
-      "description": "Kenya housing finance: mortgages, SACCOS, tenant purchase schemes. DEMO.",
+      "description": "Estimate the largest mortgage a monthly income could support and list Kenyan housing finance options. Use when someone asks how much they could borrow for a home. The estimate treats 40% of income as the monthly repayment and amortises it over 20 years at an assumed 13% a year (the middle of the 12-14% commercial range; assumed_rate_pct says so), so a KES 50,000 income supports about KES 1.7 million, not the KES 4.8 million a simple income x 0.4 x 240 would give. property_value_kes is accepted but does not change the result; zero or negative income returns an error. Returns the source label, monthly_income, the mortgage estimate with assumptions, lender types and tips. Indicative and labelled DEMO: lenders also test deposits and credit history, so ask for a quote. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
