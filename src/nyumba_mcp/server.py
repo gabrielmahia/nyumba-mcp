@@ -1,12 +1,20 @@
 """NyumbaMCP — Kenya Housing Tools (5 tools). All data DEMO."""
 from __future__ import annotations
 
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _pkg_version
 from typing import Annotated, Optional
 
 from fastmcp import FastMCP
 from pydantic import Field
 
-mcp = FastMCP(name="nyumba-mcp", instructions="Kenya housing: rental market, permits, affordable housing. DEMO.")
+try:
+    _VERSION = _pkg_version("nyumba-mcp")
+except PackageNotFoundError:  # a source tree that was never installed
+    _VERSION = "0+unknown"
+
+
+mcp = FastMCP(name="nyumba-mcp", instructions="Kenya housing: rental market, permits, affordable housing. DEMO.", version=_VERSION)
 
 @mcp.tool(name="rental_market_guide", description="Indicative monthly rent ranges in KES by county, number of bedrooms and area type (suburb or estate), with rental platforms. Use when someone asks roughly what a place costs to rent. Only some counties and bedroom counts are in the sample table; anything else returns 'Not in sample' for estimated_rent_kes rather than a guess. Returns the source label, the inputs, estimated_rent_kes, platforms and a tip. Prices labelled DEMO and indicative for Q2 2026: check current listings. Read-only; no side effects.", annotations={"readOnlyHint": True, "openWorldHint": False})
 def rental_market_guide(county: Annotated[str, Field(description="County name such as Nairobi.")], bedrooms: Annotated[int | None, Field(description="Number of bedrooms (default 1).")] = 1, area_type: Annotated[str | None, Field(description="suburb (default) or estate.")] = "suburb") -> dict:
