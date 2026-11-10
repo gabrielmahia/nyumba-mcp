@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 type: software
 title: "nyumba-mcp"
 abstract: "MCP server for Kenya housing — rental market, tenant rights, building permits, affordable housing programs, and housing finance. 5 tools."
-version: "0.1.10"
+version: "0.1.11"
 authors:
   - family-names: "Mahia"
     given-names: "Gabriel"
